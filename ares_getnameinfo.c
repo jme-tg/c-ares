@@ -272,6 +272,13 @@ static void nameinfo_callback(void *arg, int status, int timeouts,
   ares_free(niquery);
 }
 
+#if 1
+static char *lookup_service(unsigned short port, int flags,
+                            char *buf, size_t buflen)
+{
+  return NULL;
+}
+#else
 static char *lookup_service(unsigned short port, int flags,
                             char *buf, size_t buflen)
 {
@@ -348,6 +355,7 @@ static char *lookup_service(unsigned short port, int flags,
   buf[0] = '\0';
   return NULL;
 }
+#endif
 
 #ifdef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
 static void append_scopeid(struct sockaddr_in6 *addr6, unsigned int flags,

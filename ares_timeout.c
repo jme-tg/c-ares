@@ -26,8 +26,8 @@
 /* return time offset between now and (future) check, in milliseconds */
 static long timeoffset(struct timeval *now, struct timeval *check)
 {
-  return (check->tv_sec - now->tv_sec)*1000 +
-         (check->tv_usec - now->tv_usec)/1000;
+  return (long)(check->tv_sec - now->tv_sec)*1000 +
+         (long)(check->tv_usec - now->tv_usec)/1000;
 }
 
 /* WARNING: Beware that this is linear in the number of outstanding

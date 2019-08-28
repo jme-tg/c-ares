@@ -93,7 +93,7 @@ static void end_query(ares_channel channel, struct query *query, int status,
 int ares__timedout(struct timeval *now,
                    struct timeval *check)
 {
-  long secs = (now->tv_sec - check->tv_sec);
+  long long secs = (now->tv_sec - check->tv_sec);
 
   if(secs > 0)
     return 1; /* yes, timed out */
